@@ -1,0 +1,21 @@
+{
+	"name": "ds_adlsXlsheet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "supply_chain_data",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "supply_chain_data.xlsx",
+				"fileSystem": "source"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
