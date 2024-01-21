@@ -1,0 +1,9 @@
+{
+	"name": "kjf123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7bde79bf-1721-488d-96c9-f4566d43c1e7",
+		"tenantId": "d4cacafc-8802-4dd7-959b-637c46e2178f"
+	}
+}
