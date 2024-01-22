@@ -1,0 +1,113 @@
+{
+	"name": "SourceDataset_4r5",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_azuredatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Product type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SKU",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Price",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Availability",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Number of products sold",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Revenue generated",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer demographics",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Stock levels",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lead times",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order quantities",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping times",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping carriers",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Shipping costs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Supplier name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Lead time",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Production volumes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Manufacturing lead time",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Manufacturing costs",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Inspection results",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Defect rates",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Transportation modes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Routes",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Costs",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "schemaexcel",
+			"table": "supplychain"
+		}
+	}
+}
