@@ -50,7 +50,13 @@
 				"inputs": [
 					{
 						"referenceName": "DelimitedText1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dsfilename": {
+								"value": "@pipeline().parameters.pplfilename",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -62,7 +68,7 @@
 			}
 		],
 		"parameters": {
-			"filename": {
+			"pplfilename": {
 				"type": "string"
 			}
 		},
