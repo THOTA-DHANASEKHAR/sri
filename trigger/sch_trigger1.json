@@ -3,12 +3,19 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipelines": [],
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline3",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
-				"frequency": "Day",
-				"interval": 15,
+				"frequency": "Month",
+				"interval": 1,
 				"startTime": "2024-01-22T06:16:00",
 				"timeZone": "India Standard Time",
 				"schedule": {
