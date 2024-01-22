@@ -14,11 +14,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "test",
-			"table": {
-				"value": "@dataset().itemname",
-				"type": "Expression"
-			}
+			"schema": "dbo",
+			"table": "@dataset().itemname"
 		}
 	}
 }
