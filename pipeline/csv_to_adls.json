@@ -66,6 +66,7 @@
 						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -124,8 +125,14 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable2",
-						"type": "DatasetReference"
+						"referenceName": "AzureSqlTable3",
+						"type": "DatasetReference",
+						"parameters": {
+							"itemname": {
+								"value": "@activity('Get Metadata1').output.itemName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
