@@ -70,7 +70,13 @@
 							"outputs": [
 								{
 									"referenceName": "excelsheets",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"sheetname": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
