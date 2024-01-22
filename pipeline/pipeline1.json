@@ -62,6 +62,17 @@
 				]
 			}
 		],
+		"parameters": {
+			"triggertime": {
+				"type": "string"
+			},
+			"windowstarttime": {
+				"type": "string"
+			},
+			"windowendtime": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
