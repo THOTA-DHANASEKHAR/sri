@@ -74,6 +74,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "triggers"
+		},
 		"annotations": []
 	}
 }

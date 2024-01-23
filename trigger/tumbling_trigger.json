@@ -1,5 +1,5 @@
 {
-	"name": "tum_trigger1",
+	"name": "tumbling_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
