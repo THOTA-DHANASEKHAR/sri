@@ -1,5 +1,5 @@
 {
-	"name": "sch_trigger1",
+	"name": "schedule_trigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -7,6 +7,12 @@
 			{
 				"pipelineReference": {
 					"referenceName": "pipeline3",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "scheduled",
 					"type": "PipelineReference"
 				}
 			}
@@ -20,10 +26,15 @@
 				"timeZone": "India Standard Time",
 				"schedule": {
 					"minutes": [
-						30
+						30,
+						15
 					],
 					"hours": [
 						11
+					],
+					"monthDays": [
+						31,
+						10
 					]
 				}
 			}
