@@ -1,23 +1,19 @@
 {
-	"name": "s1",
+	"name": "O11",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
+		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Employee1.csv",
-				"fileSystem": "source"
-			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": false,
-			"quoteChar": "\""
+				"fileName": "out1",
+				"fileSystem": "output"
+			}
 		},
-		"schema": []
+		"schema": {}
 	}
 }
