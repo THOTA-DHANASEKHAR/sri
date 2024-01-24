@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -140,6 +141,9 @@
 				"type": "String",
 				"defaultValue": "\"Employee\""
 			}
+		},
+		"folder": {
+			"name": "New folder"
 		},
 		"annotations": []
 	}

@@ -54,6 +54,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "New folder"
+		},
 		"annotations": []
 	}
 }
