@@ -1,0 +1,241 @@
+{
+	"name": "MasterPPL001",
+	"properties": {
+		"activities": [
+			{
+				"name": "IFC_Recovery_master_slave_001",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "LKP_Recovery_master_slave_001",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('LKP_Recovery_master_slave_001').output.value[0].CNT,1 )\n\n",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "EPPL001",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "ChildPPL001",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "LKP_Recovery_master_slave_001",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT COUNT(*) AS CNT FROM dbo.Master_child_control_tbl WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL001' AND Recovery=1;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Recovery_master_slave",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "LKP_Recovery_master_slave_002",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "IFC_Recovery_master_slave_001",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "UPDATE dbo.Master_child_control_tbl SET Recovery=0 WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL001';\r\nSELECT COUNT(*) AS CNT FROM dbo.Master_child_control_tbl WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL002' AND Recovery=1;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Recovery_master_slave",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "LKP_Recovery_master_slave_003",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "IFC_Recovery_master_slave_002",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "UPDATE dbo.Master_child_control_tbl SET Recovery=0 WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL002';\r\nSELECT COUNT(*) AS CNT FROM dbo.Master_child_control_tbl WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL003' AND Recovery=1;",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Recovery_master_slave",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "IFC_Recovery_master_slave_002",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "LKP_Recovery_master_slave_002",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('LKP_Recovery_master_slave_002').output.value[0].CNT,1 )",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "EPPL002",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "ChildPPL002",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "IFC_Recovery_master_slave_003",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "LKP_Recovery_master_slave_003",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('LKP_Recovery_master_slave_003').output.value[0].CNT,1 )",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "EPPL003",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "ChildPPL003",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "LKP_Recovery_master_slave_004_Success",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "IFC_Recovery_master_slave_003",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "UPDATE dbo.Master_child_control_tbl SET Recovery=1 WHERE Master_PPL_Name = 'MasterPPL001';\r\nSELECT 'SUCCESS' AS STATUS",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "Recovery_master_slave",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"variables": {
+			"test": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-08-09T07:00:29Z"
+	}
+}

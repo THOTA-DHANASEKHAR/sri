@@ -1,0 +1,19 @@
+{
+	"name": "DSMSoutput002",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "ppl_recovery",
+				"container": "sink"
+			}
+		},
+		"schema": {}
+	}
+}
