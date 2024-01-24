@@ -1,0 +1,19 @@
+{
+	"name": "DS_DELTA_EXTRACTION_LOGTBL_INPUT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_azuredatabase",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "DELTA_EXTRACTION"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ETLLog"
+		}
+	}
+}
