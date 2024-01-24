@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pl_copy file src to tgt",
+					"referenceName": "pl_schedule trigger",
 					"type": "PipelineReference"
 				}
 			}
