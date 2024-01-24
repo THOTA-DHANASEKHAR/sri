@@ -1,9 +1,12 @@
 {
-	"name": "Recovery_master_slave",
+	"name": "source_tabel_ppl_recovery",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_azuredatabase",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "PPL_recovery"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",

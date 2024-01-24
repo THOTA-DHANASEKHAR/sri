@@ -39,18 +39,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DSMSinput003",
+						"referenceName": "source_ppl_recovery_3",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DSMSoutput001",
+						"referenceName": "Target_ppl_recovery_1",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
+		"folder": {
+			"name": "PPL_RECOVERY"
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-08-09T05:33:56Z"
 	}

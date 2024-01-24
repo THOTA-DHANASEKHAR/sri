@@ -1,9 +1,12 @@
 {
-	"name": "DSMSinput002",
+	"name": "source_ppl_recovery_2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "PPL_recovery"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
