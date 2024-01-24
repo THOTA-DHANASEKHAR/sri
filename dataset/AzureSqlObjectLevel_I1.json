@@ -1,0 +1,30 @@
+{
+	"name": "AzureSqlObjectLevel_I1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SourceType",
+				"type": "varchar"
+			},
+			{
+				"name": "SourceObjectName",
+				"type": "varchar"
+			},
+			{
+				"name": "ActiveStatus",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Control_Tbl_Info"
+		}
+	}
+}
