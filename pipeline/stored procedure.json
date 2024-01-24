@@ -1,0 +1,188 @@
+{
+	"name": "stored procedure",
+	"properties": {
+		"description": "select * from [dbo].[ETLLogTBL]",
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "s1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "O1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "starttime",
+					"value": {
+						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Stored procedure1",
+				"description": "Create table dbo.ETLLogTBL(\nDataFactoryName varchar(32),\nPipelineRunID varchar(32),\nPipeline_Name varchar(32),\nSourceType  varchar(32),\nObjectName varchar(32),\nTargetType varchar(32),\nTargetName varchar(32),\nTargetPath varchar(max),\nRowsRead varchar(10),\nRowsCopied varchar(10),\nCopyDuration varchar(32),\nThroughPut varchar(32),\nIRName varchar(64),\nPlStartTime datetime,\nPlEndTime datetime,\nStatus  varchar(10),\nError_Details  varchar(max));\n\n\nCREATE PROCEDURE dbo.SP_ETLLogTBL(\n@DataFactoryName varchar(32),\n@PipelineRunID varchar(32),\n@Pipeline_Name varchar(32),\n@SourceType  varchar(32),\n@ObjectName varchar(32),\n@TargetType varchar(32),\n@TargetName varchar(32),\n@TargetPath varchar(max),\n@RowsRead varchar(10),\n@RowsCopied varchar(10),\n@CopyDuration varchar(32),\n@ThroughPut varchar(32),\n@IRName varchar(64),\n@PlStartTime datetime,\n@PlEndTime datetime,\n@Status  varchar(10),\n@Error_Details  varchar(max))\nas\nbegin\nINSERT INTO dbo.ETLLogTBL(DataFactoryName,\nPipelineRunID,\nPipeline_Name,\nSourceType ,\nObjectName,\nTargetType,\nTargetName,\nTargetPath,\nRowsRead ,\nRowsCopied ,\nCopyDuration,\nThroughPut,\nIRName ,\nPlStartTime ,\nPlEndTime ,\nStatus  ,\nError_Details )  SELECT @DataFactoryName,\n@PipelineRunID,\n@Pipeline_Name,\n@SourceType ,\n@ObjectName,\n@TargetType,\n@TargetName,\n@TargetPath,\n@RowsRead ,\n@RowsCopied ,\n@CopyDuration,\n@ThroughPut,\n@IRName ,\n@PlStartTime ,\n@PlEndTime ,\n@Status  ,\n@Error_Details \nend",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[SP_ETLLogTBL]",
+					"storedProcedureParameters": {
+						"CopyDuration": {
+							"value": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"DataFactoryName": {
+							"value": null,
+							"type": "String"
+						},
+						"Error_Details": {
+							"value": null,
+							"type": "String"
+						},
+						"IRName": {
+							"value": null,
+							"type": "String"
+						},
+						"ObjectName": {
+							"value": null,
+							"type": "String"
+						},
+						"Pipeline_Name": {
+							"value": null,
+							"type": "String"
+						},
+						"PipelineRunID": {
+							"value": null,
+							"type": "String"
+						},
+						"PlEndTime": {
+							"value": null,
+							"type": "DateTime"
+						},
+						"PlStartTime": {
+							"value": null,
+							"type": "DateTime"
+						},
+						"RowsCopied": {
+							"value": null,
+							"type": "String"
+						},
+						"RowsRead": {
+							"value": null,
+							"type": "String"
+						},
+						"SourceType": {
+							"value": null,
+							"type": "String"
+						},
+						"Status": {
+							"value": null,
+							"type": "String"
+						},
+						"TargetName": {
+							"value": null,
+							"type": "String"
+						},
+						"TargetPath": {
+							"value": null,
+							"type": "String"
+						},
+						"TargetType": {
+							"value": null,
+							"type": "String"
+						},
+						"ThroughPut": {
+							"value": null,
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_azuredatabase",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"variables": {
+			"starttime": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-08-09T10:40:35Z"
+	}
+}
