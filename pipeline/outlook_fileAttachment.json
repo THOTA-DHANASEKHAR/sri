@@ -1,5 +1,5 @@
 {
-	"name": "gmail message",
+	"name": "outlook_fileAttachment",
 	"properties": {
 		"activities": [
 			{
@@ -39,13 +39,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "s1",
+						"referenceName": "s11",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "O1",
+						"referenceName": "O12",
 						"type": "DatasetReference"
 					}
 				]
@@ -74,14 +74,20 @@
 					"headers": {
 						"content-type": "application/json"
 					},
-					"url": "https://prod-27.eastus.logic.azure.com:443/workflows/e4e0d2f93a4b4bdf90f03be2f31f0595/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=HImc52ky-i2nqKGaC1CE_XpC9wxIW71303LCgXuOFHQ",
+					"url": "https://prod-36.eastus.logic.azure.com:443/workflows/f7891825ae3f475a966381f34d762c12/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XTHXReMPqSpztR_kqFz_2xQmE_I5hTjH1zcpCsl3lIc",
 					"body": {
-						"value": "{\n    \"TO\": \"sekhardhana756@gmail.com\",\n    \"SUBJECT\": \"Azure Data Factory Pipeline failed\",\n    \"EMAIL_BODY\":\"@{\n        activity('Copy data1').output.errors[0].Message\n        }\"\n}\n\n\n\n\n",
+						"value": "{\n    \"To\": \"sekhardhana756@gmail.com\",\n    \"subject\": \"Azure Data Factory Pipeline failed\",\n    \"file_name\":\"@{variables('File_Name')}\"\n}\n\n\n\n\n",
 						"type": "Expression"
 					}
 				}
 			}
 		],
+		"variables": {
+			"File_Name": {
+				"type": "String",
+				"defaultValue": "source/Trigger- System variables - Azure Data Factory.pdf"
+			}
+		},
 		"annotations": []
 	}
 }
