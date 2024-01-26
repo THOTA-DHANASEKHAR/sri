@@ -80,8 +80,37 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "status",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "a",
+					"value": {
+						"value": "@activity('Copy data1').status",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"a": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
