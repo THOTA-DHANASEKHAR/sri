@@ -1,0 +1,21 @@
+{
+	"name": "AzureSqldbmetadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_keerthi_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "control_table"
+		}
+	}
+}
