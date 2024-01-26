@@ -57,7 +57,7 @@
 					{
 						"activity": "Copy data1",
 						"dependencyConditions": [
-							"Failed"
+							"Completed"
 						]
 					}
 				],
@@ -76,31 +76,7 @@
 					},
 					"url": "https://prod-27.eastus.logic.azure.com:443/workflows/e4e0d2f93a4b4bdf90f03be2f31f0595/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=HImc52ky-i2nqKGaC1CE_XpC9wxIW71303LCgXuOFHQ",
 					"body": {
-						"value": "{\n    \"TO\": \"sekhardhana756@gmail.com\",\n    \"SUBJECT\": \"Azure Data Factory Pipeline failed\",\n    \"EMAIL_BODY\":\"@{\n        activity('Copy data1').output.errors[0].Message\n        }\"\n}\n\n\n\n\n",
-						"type": "Expression"
-					}
-				}
-			},
-			{
-				"name": "status",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "a",
-					"value": {
-						"value": "@activity('Copy data1').status",
+						"value": "{\n    \"TO\": \"sekhardhana756@gmail.com\",\n    \"SUBJECT\": \"@{concat('Azure Data Factory Pipeline ', activity('Copy data1').status)}\",\n    \"EMAIL_BODY\":\"@{\n        activity('Copy data1').output.errors[0].Message\n        }\"\n}\n\n\n\n\n\n\n",
 						"type": "Expression"
 					}
 				}
