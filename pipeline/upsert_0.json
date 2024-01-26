@@ -1,0 +1,38 @@
+{
+	"name": "upsert_0",
+	"properties": {
+		"description": "create table dbo.EMP_SRC (ID INT, Ename varchar(10), SAL int);\ncreate table dbo.EMP_TGT (ID INT, Ename varchar(10), SAL int);\n\nINSERT INTO dbo.EMP_SRC values(101, 'A', 5000);\nINSERT INTO dbo.EMP_SRC values(102, 'B', 6000);\n\nINSERT INTO dbo.EMP_SRC values(103, 'C', 7000);\nUPDATE dbo.EMP_SRC SET SAL=6000 where Ename='B';\n\nDELETE FROM dbo.EMP_SRC where ID=101\n\nSelect * from dbo.EMP_SRC;\nSelect * from dbo.EMP_TGT;",
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "MERGE dbo.EMP_TGT TGT USING dbo.EMP_SRC SRC ON (SRC.ID=TGT.ID) \nWHEN MATCHED AND TGT.SAL <> SRC.SAL THEN UPDATE SET TGT.SAL = SRC.SAL\nWHEN NOT MATCHED THEN INSERT (ID, Ename, SAL) VALUES(SRC.ID, SRC.Ename, SRC.SAL)\nWHEN NOT MATCHED BY SOURCE THEN DELETE;",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"annotations": []
+	}
+}

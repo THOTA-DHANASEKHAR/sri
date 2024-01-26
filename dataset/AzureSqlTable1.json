@@ -9,8 +9,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "schemaexcel",
-			"table": "supplychain"
+			"schema": "dbo",
+			"table": "EMP_SRC"
 		}
 	}
 }
