@@ -76,7 +76,7 @@
 					},
 					"url": "https://prod-36.eastus.logic.azure.com:443/workflows/f7891825ae3f475a966381f34d762c12/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=XTHXReMPqSpztR_kqFz_2xQmE_I5hTjH1zcpCsl3lIc",
 					"body": {
-						"value": "{\n    \"To\": \"sekhardhana756@gmail.com\",\n    \"subject\": \"Azure Data Factory Pipeline failed\",\n    \"file_name\":\"@{variables('File_Name')}\"\n}\n\n\n\n\n",
+						"value": "{\n    \"To\": \"keerthivuggumudi2424@gmail.com\",\n    \"subject\": \"Azure Data Factory Pipeline failed\",\n    \"file_name\":\"@{variables('File_Name')}\"\n}\n\n\n\n\n",
 						"type": "Expression"
 					}
 				}
