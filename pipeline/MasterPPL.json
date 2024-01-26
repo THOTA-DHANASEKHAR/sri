@@ -24,6 +24,9 @@
 							"name": "EPPL001",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
@@ -150,6 +153,9 @@
 							"name": "EPPL002",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
@@ -184,6 +190,9 @@
 							"name": "EPPL003",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
@@ -218,7 +227,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "UPDATE dbo.Master_child_control_tbl SET Recovery=1 WHERE Master_PPL_Name = 'MasterPPL001';\r\nSELECT 'SUCCESS' AS STATUS",
+						"sqlReaderQuery": "UPDATE dbo.Master_child_control_tbl SET Recovery=0 WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL001';\nSELECT COUNT(*) AS CNT FROM dbo.Master_child_control_tbl WHERE Master_PPL_Name = 'MasterPPL001' AND Child_PPL_Name = 'ChildPPL002' AND Recovery=1;",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
