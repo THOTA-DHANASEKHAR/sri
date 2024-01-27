@@ -1,0 +1,19 @@
+{
+	"name": "O13",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "out1",
+				"fileSystem": "output"
+			}
+		},
+		"schema": {}
+	}
+}
