@@ -1,9 +1,12 @@
 {
-	"name": "AzureSqlObjectLevel_I1",
+	"name": "Cnt_tbl_Object_Level_Recovery",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Object_Level_Recovery"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",

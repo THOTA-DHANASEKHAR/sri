@@ -1,5 +1,5 @@
 {
-	"name": "ObjectO2",
+	"name": "Source_Object_Level_Recovery",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -9,6 +9,9 @@
 			"filename": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "Object_Level_Recovery"
 		},
 		"annotations": [],
 		"type": "DelimitedText",

@@ -1,5 +1,5 @@
 {
-	"name": "ObjectLevel_recovery",
+	"name": "Object_Level_recovery",
 	"properties": {
 		"activities": [
 			{
@@ -157,7 +157,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "ObjectO2",
+									"referenceName": "Source_Object_Level_Recovery",
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
@@ -169,7 +169,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "OBLECT_O1",
+									"referenceName": "Target_Object_Level_Recovery",
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
@@ -387,7 +387,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlObjectLevel_I1",
+						"referenceName": "Cnt_tbl_Object_Level_Recovery",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -532,7 +532,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlObjectLevel_I1",
+						"referenceName": "Cnt_tbl_Object_Level_Recovery",
 						"type": "DatasetReference"
 					}
 				}
@@ -553,7 +553,7 @@
 			}
 		},
 		"folder": {
-			"name": "New folder"
+			"name": "Object_Level_Recovery"
 		},
 		"annotations": [],
 		"lastPublishTime": "2023-08-09T12:40:44Z"

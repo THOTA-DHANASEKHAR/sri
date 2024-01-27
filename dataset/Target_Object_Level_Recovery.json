@@ -1,5 +1,5 @@
 {
-	"name": "OBLECT_O1",
+	"name": "Target_Object_Level_Recovery",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -12,6 +12,9 @@
 			"path": {
 				"type": "string"
 			}
+		},
+		"folder": {
+			"name": "Object_Level_Recovery"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
