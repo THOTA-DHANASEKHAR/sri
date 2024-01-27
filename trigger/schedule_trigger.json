@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipeline3",
+					"referenceName": "Multiple_excel_sheets_copy",
 					"type": "PipelineReference"
 				}
 			},
