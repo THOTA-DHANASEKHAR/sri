@@ -1,5 +1,5 @@
 {
-	"name": "multitable copy",
+	"name": "multi_table_Recovery",
 	"properties": {
 		"activities": [
 			{
@@ -136,7 +136,10 @@
 										"typeProperties": {
 											"source": {
 												"type": "AzureSqlSource",
-												"sqlReaderQuery": "UPDATE [dbo].[control_table1] SET status='sucess' WHERE TableName = '@{item().TableName}';\nSELECT 'SUCCESS' AS STATUS\n\n",
+												"sqlReaderQuery": {
+													"value": "UPDATE [dbo].[control_table1] SET status='sucess' WHERE TableName = '@{item().TableName}';\nSELECT 'SUCCESS' AS STATUS\n\n",
+													"type": "Expression"
+												},
 												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
