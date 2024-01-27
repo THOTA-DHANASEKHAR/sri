@@ -5,6 +5,9 @@
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "copy_file_based_on_file_count"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

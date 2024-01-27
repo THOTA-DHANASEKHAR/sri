@@ -1,9 +1,12 @@
 {
-	"name": "O13",
+	"name": "Target_copy_file_based_on_file_count",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "copy_file_based_on_file_count"
 		},
 		"annotations": [],
 		"type": "Json",
