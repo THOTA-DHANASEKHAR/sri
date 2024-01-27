@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "L_LOGTBL",
+				"name": "log_TBL",
 				"description": "drop table [dbo].[ETLLog]\n\ncreate table [dbo].[ETLLog]\n(\n\nTableName varchar(255),\nWatermarkValue datetime,\nStatus varchar(32)\n);\n\nINSERT INTO [dbo].[ETLLog]\nVALUES ('data_source_table','1/1/2010 12:00:00 AM','Success')\n\nSELECT * FROM [dbo].[ETLLog]",
 				"type": "Lookup",
 				"dependsOn": [],
@@ -34,13 +34,13 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "L_LOGTBL",
+						"activity": "log_TBL",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "L_M_TBL",
+						"activity": "source_TBL",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -58,7 +58,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT *\nFROM [dbo].[data_source_table]\nWHERE LastModifytime > '@{activity('L_LOGTBL').output.firstRow.Logtime}' and LastModifytime <= '@{activity('L_M_TBL').output.firstRow.L_S_time}'\n\n\n",
+							"value": "SELECT *\nFROM [dbo].[data_source_table]\nWHERE LastModifytime > '@{activity('log_TBL').output.firstRow.Logtime}' and LastModifytime <= '@{activity('source_TBL').output.firstRow.L_S_time}'\n\n\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -144,7 +144,7 @@
 				}
 			},
 			{
-				"name": "L_M_TBL",
+				"name": "source_TBL",
 				"description": "drop table [dbo].[data_source_table];\n\ncreate table [dbo].[data_source_table]\n(\n    PersonID int,\n    Name varchar(255),\n    LastModifytime datetime\n);\n\nINSERT INTO [dbo].[data_source_table]\n    (PersonID, Name, LastModifytime)\nVALUES\n    (1, 'aaaa','9/1/2021 12:56:00 AM'),\n    (2, 'bbbb','9/2/2018 5:23:00 AM'),\n    (3, 'cccc','9/3/2021 2:36:00 AM'),\n    (4, 'dddd','9/4/2020 3:21:00 AM'),\n    (5, 'eeee','9/5/2022 8:06:00 AM');\n\nSELECT * FROM [dbo].[data_source_table]",
 				"type": "Lookup",
 				"dependsOn": [],
