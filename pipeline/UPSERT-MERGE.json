@@ -1,5 +1,5 @@
 {
-	"name": "UPSERT",
+	"name": "UPSERT-MERGE",
 	"properties": {
 		"description": "create table dbo.EMP_SRC (ID INT, Ename varchar(10), SAL int);\ncreate table dbo.EMP_TGT (ID INT, Ename varchar(10), SAL int);\n\nINSERT INTO dbo.EMP_SRC values(101, 'A', 5000);\nINSERT INTO dbo.EMP_SRC values(102, 'B', 6000);\n\nINSERT INTO dbo.EMP_SRC values(103, 'C', 7000);\nUPDATE dbo.EMP_SRC SET SAL=6000 where Ename='B';\n\nDELETE FROM dbo.EMP_SRC where ID=101\n\nSelect * from dbo.EMP_SRC;\nSelect * from dbo.EMP_TGT;",
 		"activities": [
@@ -33,6 +33,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "UPSERT-MERGE"
+		},
 		"annotations": []
 	}
 }

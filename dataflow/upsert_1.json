@@ -1,6 +1,9 @@
 {
 	"name": "upsert_1",
 	"properties": {
+		"folder": {
+			"name": "UPSERT"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
