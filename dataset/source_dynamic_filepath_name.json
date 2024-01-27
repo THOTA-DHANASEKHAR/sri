@@ -1,12 +1,12 @@
 {
-	"name": "source_copy_csv_adls_2_adls",
+	"name": "source_dynamic_filepath_name",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "copy_csv_adls_2_adls"
+			"name": "dynamic_filepath_name"
 		},
 		"annotations": [],
 		"type": "DelimitedText",

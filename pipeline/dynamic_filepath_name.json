@@ -1,5 +1,5 @@
 {
-	"name": "copy_csv_adls_2_adls",
+	"name": "dynamic_filepath_name",
 	"properties": {
 		"activities": [
 			{
@@ -49,20 +49,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "source_copy_csv_adls_2_adls",
+						"referenceName": "source_dynamic_filepath_name",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Target_copy_csv_adls_2_adls",
+						"referenceName": "Target_dynamic_filepath_name",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"folder": {
-			"name": "copy_csv_adls_2_adls"
+			"name": "dynamic_filepath_name"
 		},
 		"annotations": []
 	}
