@@ -1,0 +1,31 @@
+{
+	"name": "source_scd_t1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_azuredatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Ename",
+				"type": "varchar"
+			},
+			{
+				"name": "SAL",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "EMP_SRC"
+		}
+	}
+}

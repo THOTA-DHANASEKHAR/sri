@@ -1,0 +1,16 @@
+{
+	"name": "target_scd_t1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_azuredatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "EMP_TGT"
+		}
+	}
+}
