@@ -1,12 +1,12 @@
 {
-	"name": "Target_dynamic_filepath_name",
+	"name": "Target_copy_only_csv",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "dynamic_filepath_name"
+			"name": "copy_only_csv"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
