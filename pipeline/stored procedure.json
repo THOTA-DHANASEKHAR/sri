@@ -76,145 +76,14 @@
 				}
 			},
 			{
-				"name": "Stored procedure1",
-				"description": "Create table dbo.ETLLogTBL(\nDataFactoryName varchar(32),\nPipelineRunID varchar(32),\nPipeline_Name varchar(32),\nSourceType  varchar(32),\nObjectName varchar(32),\nTargetType varchar(32),\nTargetName varchar(32),\nTargetPath varchar(max),\nRowsRead varchar(10),\nRowsCopied varchar(10),\nCopyDuration varchar(32),\nThroughPut varchar(32),\nIRName varchar(64),\nPlStartTime datetime,\nPlEndTime datetime,\nStatus  varchar(10),\nError_Details  varchar(max));\n\n\nCREATE PROCEDURE dbo.SP_ETLLogTBL(\n@DataFactoryName varchar(32),\n@PipelineRunID varchar(32),\n@Pipeline_Name varchar(32),\n@SourceType  varchar(32),\n@ObjectName varchar(32),\n@TargetType varchar(32),\n@TargetName varchar(32),\n@TargetPath varchar(max),\n@RowsRead varchar(10),\n@RowsCopied varchar(10),\n@CopyDuration varchar(32),\n@ThroughPut varchar(32),\n@IRName varchar(64),\n@PlStartTime datetime,\n@PlEndTime datetime,\n@Status  varchar(10),\n@Error_Details  varchar(max))\nas\nbegin\nINSERT INTO dbo.ETLLogTBL(DataFactoryName,\nPipelineRunID,\nPipeline_Name,\nSourceType ,\nObjectName,\nTargetType,\nTargetName,\nTargetPath,\nRowsRead ,\nRowsCopied ,\nCopyDuration,\nThroughPut,\nIRName ,\nPlStartTime ,\nPlEndTime ,\nStatus  ,\nError_Details )  SELECT @DataFactoryName,\n@PipelineRunID,\n@Pipeline_Name,\n@SourceType ,\n@ObjectName,\n@TargetType,\n@TargetName,\n@TargetPath,\n@RowsRead ,\n@RowsCopied ,\n@CopyDuration,\n@ThroughPut,\n@IRName ,\n@PlStartTime ,\n@PlEndTime ,\n@Status  ,\n@Error_Details \nend",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "[dbo].[SP_ETLLogTBL]",
-					"storedProcedureParameters": {
-						"CopyDuration": {
-							"value": {
-								"value": "@activity('Copy data1').output.copyDuration",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"DataFactoryName": {
-							"value": {
-								"value": "@pipeline().DataFactory",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Error_Details": {
-							"value": {
-								"value": "@activity('Copy data1').output.errors",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"IRName": {
-							"value": {
-								"value": "@activity('Copy data1').output.effectiveIntegrationRuntime",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"ObjectName": {
-							"value": "ABC",
-							"type": "String"
-						},
-						"Pipeline_Name": {
-							"value": {
-								"value": "@pipeline().Pipeline",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"PipelineRunID": {
-							"value": {
-								"value": "@pipeline().RunId",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"PlEndTime": {
-							"value": {
-								"value": "@utcnow()",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						},
-						"PlStartTime": {
-							"value": {
-								"value": "@variables('starttime')",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						},
-						"RowsCopied": {
-							"value": {
-								"value": "@activity('Copy data1').output.rowsCopied",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"RowsRead": {
-							"value": {
-								"value": "@activity('Copy data1').output.rowsRead",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"SourceType": {
-							"value": "ADLS_SOURCE",
-							"type": "String"
-						},
-						"Status": {
-							"value": "SUCCESS",
-							"type": "String"
-						},
-						"TargetName": {
-							"value": "Target",
-							"type": "String"
-						},
-						"TargetPath": {
-							"value": "sink",
-							"type": "String"
-						},
-						"TargetType": {
-							"value": "storage",
-							"type": "String"
-						},
-						"ThroughPut": {
-							"value": {
-								"value": "@activity('Copy data1').output.throughput",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "LS_azuredatabase",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
 				"name": "Stored procedure1_copy1",
 				"description": "Create table dbo.ETLLogTBL(\nDataFactoryName varchar(32),\nPipelineRunID varchar(32),\nPipeline_Name varchar(32),\nSourceType  varchar(32),\nObjectName varchar(32),\nTargetType varchar(32),\nTargetName varchar(32),\nTargetPath varchar(max),\nRowsRead varchar(10),\nRowsCopied varchar(10),\nCopyDuration varchar(32),\nThroughPut varchar(32),\nIRName varchar(64),\nPlStartTime datetime,\nPlEndTime datetime,\nStatus  varchar(10),\nError_Details  varchar(max));\n\n\nCREATE PROCEDURE dbo.SP_ETLLogTBL(\n@DataFactoryName varchar(32),\n@PipelineRunID varchar(32),\n@Pipeline_Name varchar(32),\n@SourceType  varchar(32),\n@ObjectName varchar(32),\n@TargetType varchar(32),\n@TargetName varchar(32),\n@TargetPath varchar(max),\n@RowsRead varchar(10),\n@RowsCopied varchar(10),\n@CopyDuration varchar(32),\n@ThroughPut varchar(32),\n@IRName varchar(64),\n@PlStartTime datetime,\n@PlEndTime datetime,\n@Status  varchar(10),\n@Error_Details  varchar(max))\nas\nbegin\nINSERT INTO dbo.ETLLogTBL(DataFactoryName,\nPipelineRunID,\nPipeline_Name,\nSourceType ,\nObjectName,\nTargetType,\nTargetName,\nTargetPath,\nRowsRead ,\nRowsCopied ,\nCopyDuration,\nThroughPut,\nIRName ,\nPlStartTime ,\nPlEndTime ,\nStatus  ,\nError_Details )  SELECT @DataFactoryName,\n@PipelineRunID,\n@Pipeline_Name,\n@SourceType ,\n@ObjectName,\n@TargetType,\n@TargetName,\n@TargetPath,\n@RowsRead ,\n@RowsCopied ,\n@CopyDuration,\n@ThroughPut,\n@IRName ,\n@PlStartTime ,\n@PlEndTime ,\n@Status  ,\n@Error_Details \nend",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "If Condition1",
 						"dependencyConditions": [
-							"Failed"
+							"Completed"
 						]
 					}
 				],
@@ -245,7 +114,7 @@
 						},
 						"Error_Details": {
 							"value": {
-								"value": "@activity('Copy data1').output.errors[0].Message\n\n\n",
+								"value": "@variables('Error_Message')",
 								"type": "Expression"
 							},
 							"type": "String"
@@ -336,11 +205,53 @@
 					"referenceName": "LS_azuredatabase",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(activity('Copy data1').status,'Failed')",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Error_Message",
+								"value": {
+									"value": "@activity('Copy data1').output.errors[0].Message\n",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
 			}
 		],
 		"variables": {
 			"starttime": {
 				"type": "String"
+			},
+			"Error_Message": {
+				"type": "String",
+				"defaultValue": "All good"
 			}
 		},
 		"annotations": [],
