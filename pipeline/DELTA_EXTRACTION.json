@@ -131,7 +131,7 @@
 						},
 						"WatermarkValue": {
 							"value": {
-								"value": "@activity('L_M_TBL').output.firstRow.L_S_time\r\n",
+								"value": "@activity('source_TBL').output.firstRow.L_S_time\n",
 								"type": "Expression"
 							},
 							"type": "DateTime"
