@@ -6,24 +6,76 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "source_scd_t1",
+						"referenceName": "target_scd_t2",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "source2"
+				},
+				{
+					"name": "source3"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "target_scd_t2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
+				"          surrogate_Key as integer,",
 				"          ID as integer,",
 				"          Ename as string,",
-				"          SAL as integer",
+				"          SAL as integer,",
+				"          isactive as integer",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     limit: 100,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> source1"
+				"     format: 'table') ~> source2",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source3",
+				"source2 select(mapColumn(",
+				"          S_surrogate_Key = surrogate_Key,",
+				"          S_ID = ID,",
+				"          S_Ename = Ename,",
+				"          S_SAL = SAL,",
+				"          S_isactive = isactive",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"source3 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          surrogate_Key as integer,",
+				"          ID as integer,",
+				"          Ename as string,",
+				"          SAL as integer,",
+				"          isactive as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ID,",
+				"          Ename,",
+				"          SAL,",
+				"          isactive",
+				"     )) ~> sink1"
 			]
 		}
 	}
