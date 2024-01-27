@@ -1,5 +1,5 @@
 {
-	"name": "pipeline2",
+	"name": "Copy_adls_xl to adb",
 	"properties": {
 		"activities": [
 			{
