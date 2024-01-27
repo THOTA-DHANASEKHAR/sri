@@ -1,5 +1,5 @@
 {
-	"name": "upsert1",
+	"name": "upsert_1",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {

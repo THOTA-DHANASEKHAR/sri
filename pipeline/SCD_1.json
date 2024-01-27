@@ -1,5 +1,5 @@
 {
-	"name": "upsert1",
+	"name": "SCD_1",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "upsert1",
+						"referenceName": "upsert_1",
 						"type": "DataFlowReference"
 					},
 					"compute": {
