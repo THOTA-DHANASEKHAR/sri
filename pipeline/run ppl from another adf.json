@@ -1,0 +1,7 @@
+{
+	"name": "run ppl from another adf",
+	"properties": {
+		"description": "https://learn.microsoft.com/en-us/rest/api/datafactory/pipelines/create-run?view=rest-datafactory-2018-06-01&tabs=HTTP#code-try-0",
+		"annotations": []
+	}
+}
