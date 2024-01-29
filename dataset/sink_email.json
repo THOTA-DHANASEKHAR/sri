@@ -1,0 +1,23 @@
+{
+	"name": "sink_email",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_adls2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "email",
+				"fileSystem": "sink"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
