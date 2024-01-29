@@ -9,8 +9,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "test",
-			"table": "csvfile"
+			"schema": "dbo",
+			"table": "temp_meta_OLR"
 		}
 	}
 }
