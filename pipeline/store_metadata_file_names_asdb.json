@@ -65,7 +65,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"sqlReaderQuery": "MERGE INTO [dbo].[temp_meta_OLR] AS target\r\nUSING (VALUES ('tdsr', 'Not Copied')) AS source (filename, status)\r\nON target.filename = source.filename\r\nWHEN NOT MATCHED THEN\r\n    INSERT (filename, status)\r\n    VALUES (source.filename, source.status);\r\n    \r\nSELECT 'SUCCESS' AS STATUS\r\n\r\n\r\n",
+									"sqlReaderQuery": "MERGE INTO [dbo].[temp_meta_OLR] AS target\nUSING (VALUES ('@{item().name}', 'Not Copied')) AS source (filename, status)\nON target.filename = source.filename\nWHEN NOT MATCHED THEN\n    INSERT (filename, status)\n    VALUES (source.filename, source.status);\n    \nSELECT 'SUCCESS' AS STATUS\n\n\n",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
