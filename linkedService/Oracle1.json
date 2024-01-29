@@ -6,7 +6,7 @@
 		"type": "Oracle",
 		"typeProperties": {
 			"connectionString": "host=rahkeS-anahD-atohT;port=1522;servicename=XE;user id=hr",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMTJhMDE4OC1jZWNjLTQxMWMtYTM2Zi1hODBkZWRjOGVmMDIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0NjkzZjAxYi0yZTY4LTRmZTktODZmMS04ZjYxMDQ2ZTQ1NzEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SelfhostedintegrationRuntime",
