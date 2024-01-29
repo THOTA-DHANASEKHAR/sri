@@ -49,13 +49,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Ds_src_csvfile_adls",
+						"referenceName": "Ds_copy_src_csvfile_adls",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Ds_tgt_csvfile_adls",
+						"referenceName": "Ds_copy_tgt_csvfile_adls",
 						"type": "DatasetReference"
 					}
 				]

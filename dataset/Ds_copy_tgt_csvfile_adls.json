@@ -1,5 +1,5 @@
 {
-	"name": "Ds_tgt_csvfile_adls",
+	"name": "Ds_copy_tgt_csvfile_adls",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_adls2",
