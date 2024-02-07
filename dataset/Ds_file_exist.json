@@ -1,0 +1,32 @@
+{
+	"name": "Ds_file_exist",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_adls2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Employee2.csv",
+				"fileSystem": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "filename",
+				"type": "String"
+			},
+			{
+				"name": "filepath",
+				"type": "String"
+			}
+		]
+	}
+}
