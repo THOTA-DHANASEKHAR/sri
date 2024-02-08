@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "ds_controltbl",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -85,6 +85,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "deletefiles_from_blobs"
+		},
 		"annotations": []
 	}
 }

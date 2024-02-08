@@ -50,6 +50,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "copy_folder_from_one_adls_2_another"
+		},
 		"annotations": []
 	}
 }

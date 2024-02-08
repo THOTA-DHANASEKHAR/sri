@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -85,6 +86,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "pl_file_exist or not"
+		},
 		"annotations": []
 	}
 }

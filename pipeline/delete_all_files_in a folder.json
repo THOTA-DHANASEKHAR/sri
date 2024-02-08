@@ -35,6 +35,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "delete_all_files_in a folder"
+		},
 		"annotations": []
 	}
 }
