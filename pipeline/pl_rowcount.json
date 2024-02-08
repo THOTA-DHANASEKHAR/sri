@@ -43,7 +43,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "ds_controltbl",
 						"type": "DatasetReference"
 					}
 				],
