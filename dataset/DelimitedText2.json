@@ -1,5 +1,5 @@
 {
-	"name": "Ds_file_exist",
+	"name": "DelimitedText2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_adls2",
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Employee.csv",
-				"fileSystem": "source"
+				"folderPath": "target",
+				"fileSystem": "missingfiles"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -20,11 +20,23 @@
 		},
 		"schema": [
 			{
-				"name": "filename",
+				"name": "ORDER_ID",
 				"type": "String"
 			},
 			{
-				"name": "filepath",
+				"name": "ORDER_DATETIME",
+				"type": "String"
+			},
+			{
+				"name": "CUSTOMER_ID",
+				"type": "String"
+			},
+			{
+				"name": "ORDER_STATUS",
+				"type": "String"
+			},
+			{
+				"name": "STORE_ID",
 				"type": "String"
 			}
 		]
